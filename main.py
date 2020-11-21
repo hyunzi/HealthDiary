@@ -1,4 +1,4 @@
-# Last Update Date: 2020/11/14
+# Last Update Date: 2020/11/21
 
 #(완료)1주차-데이터 저장 형식 json. 저장 포맷은 README.md에 상세기재
 import json
@@ -87,13 +87,51 @@ def workout_record():
         else:
             print ("잘못된 값 입력")
 
-#(예정)3주차-휴식기록 함수 구현 
+#(완료)3주차-휴식기록 함수 구현 
 def rest_record():
+    rest_data = []
     print('<휴식을 기록해보자>')
+    r_name = input('휴식명: ')
+    r_starttime = input('시작시간(hh:mm): ')
+    r_endtime = input('종료시간(hh:mm): ')
+    r_condition = input('컨디션(1~10): ')
+    rest_data.append({"date":today, "name":r_name, "starttime":r_starttime, "endtime":r_endtime, "condition":r_condition})
+    while True:
+        choice = input('추가입력 여부(Y/N): ')
+        if choice == 'Y' or choice == 'y':
+            r_name = input('휴식명: ')
+            r_starttime = input('시작시간(hh:mm): ')
+            r_endtime = input('종료시간(hh:mm): ')
+            r_condition = input('컨디션(1~10): ')
+            rest_data.append({"date":today, "name":r_name, "starttime":r_starttime, "endtime":r_endtime, "condition":r_condition})
+        elif choice == 'N' or choice == 'n':
+            save_data('diary_rest.txt', rest_data)
+            print('휴식을 저장했습니다!')
+            break
+        else:
+            print ("잘못된 값 입력")
 
-#(예정)3주차-수면기록 함수 구현
+#(완료)3주차-수면기록 함수 구현
 def sleep_record():
+    sleep_data = []
     print('<수면을 기록해보자>')
+    s_starttime = input('시작시간(hh:mm): ')
+    s_endtime = input('종료시간(hh:mm): ')
+    s_condition = input('컨디션(1~10): ')
+    sleep_data.append({"date":today, "starttime":s_starttime, "endtime":s_endtime, "condition":s_condition})
+    while True:
+        choice = input('추가입력 여부(Y/N): ')
+        if choice == 'Y' or choice == 'y':
+            s_starttime = input('시작시간(hh:mm): ')
+            s_endtime = input('종료시간(hh:mm): ')
+            s_condition = input('컨디션(1~10): ')
+            sleep_data.append({"date":today, "starttime":s_starttime, "endtime":s_endtime, "condition":s_condition})
+        elif choice == 'N' or choice == 'n':
+            save_data('diary_sleep.txt', sleep_data)
+            print('수면을 저장했습니다!')
+            break
+        else:
+            print ("잘못된 값 입력")
 
 #(예정)4주차-보고서 생성 함수 구현
 def create_report(): 
@@ -122,7 +160,7 @@ def main():
         print()
 
 #메인 함수 실행
-if __name__ == '__main__': 
-  main()
+if __name__ == '__main__':
+    main()
 
 #(예정)5주차-README.md 파일에 프로그램 설명 작성

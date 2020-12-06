@@ -1,4 +1,4 @@
-# Last Update Date: 2020/11/29
+# Last Update Date: 2020/12/06
 
 #(완료)1주차-데이터 저장 형식 json. 저장 포맷은 README.md에 상세기재
 import json
@@ -194,7 +194,7 @@ def sleep_record():
         else:
             print("잘못된 값 입력")
 
-#(예정)4주차-보고서 생성 함수 구현
+#(완료)4주차-보고서 생성 함수 구현
 def create_report(): 
     report_start = (datetime.today()+timedelta(days=-7)).strftime("%m/%d")
     report_end = datetime.today().strftime("%m/%d")
@@ -287,4 +287,4 @@ def get_list_avg(list):
 if __name__ == '__main__':
     main()
 
-#(예정)5주차-README.md 파일에 프로그램 설명 작성
+#(완료)5주차-README.md 파일에 프로그램 설명 작성
